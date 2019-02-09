@@ -6,7 +6,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappx     = 22;        /* pixel gap between clients */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Inconsolata Nerd Font:size=12" };
+static const char *fonts[]          = { "Inconsolata Nerd Font:size=28" };
 static const char dmenufont[]       = "Inconsolata Nerd Font:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -43,7 +43,7 @@ static const Rule rules[] = {
 	{ "Firefox",  NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "Mailspring",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "GitKraken",  NULL,       NULL,       1 << 6,       0,           -1 },
-	{ "Google Keep",  NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "google-keep",  NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "Evernote Web",  NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "evernote",  NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "messenger",  NULL,       NULL,       1 << 7,       0,           -1 },
@@ -100,6 +100,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -123,7 +124,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_Escape,      quit,           {0} },
 };
 
 /* button definitions */
