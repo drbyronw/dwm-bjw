@@ -62,6 +62,7 @@ static const char *termcmd[]  = { "st", NULL };
 
 #include "selfrestart.c"
 
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },

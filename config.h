@@ -42,6 +42,7 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "Google-chrome",  NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "google-calendar-nativefier-9e2d0d",  NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "Mailspring",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "GitKraken",  NULL,       NULL,       1 << 6,       0,           -1 },
 	{ "Google Keep",  NULL,       NULL,       1 << 2,       0,           -1 },
@@ -81,10 +82,11 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_recency", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-/* static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; */
+/* static const char *dmenucmd[] = { "dmenu_recency", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; */
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *blurlock[]  = { "blurlock", NULL };
+/* static const char *blurlock[]  = { "blurlock", NULL }; */
+static const char *lightdm_lock[]  = { "dm-tool", "lock", NULL };
 
 #include "selfrestart.c"
 
@@ -94,7 +96,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	/* { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } }, */
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = blurlock } },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lightdm_lock } },
+	/* { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = blurlock } }, */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
