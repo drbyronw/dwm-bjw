@@ -1517,10 +1517,16 @@ run(void)
 			handler[ev.type](&ev); /* call handler */
 }
 
+/* void */
+/* runAutostart(void) { */
+/* 	system("cd /opt/dwm-distrotube-git; ./autostart_blocking.sh"); */
+/* 	system("cd /opt/dwm-distrotube-git; ./autostart.sh &"); */
+/* } */
+
 void
 runAutostart(void) {
-	system("cd /opt/dwm-distrotube-git; ./autostart_blocking.sh");
-	system("cd /opt/dwm-distrotube-git; ./autostart.sh &");
+	system("cd $HOME/.dwm; ./autostart_blocking.sh");
+	system("cd $HOME/.dwm; ./autostart.sh &");
 }
 
 void
