@@ -18,9 +18,9 @@ static const int vertpadbar        = 7;   /* vertical padding for statusbar */
  * Arch repos and is listed as a dependency for this build. JoyPixels is also
  * a hard dependency and makes colored fonts and emojis possible.
  */
-static const char *fonts[]     = {"Inconsolata Nerd Font:size=12:antialias=true:autohint=true",
-                                  "Hack:size=12:antialias=true:autohint=true",
-                                  "JoyPixels:size=14:antialias=true:autohint=true"
+static const char *fonts[]     = {"Inconsolata Nerd Font:size=10:antialias=true:autohint=true",
+                                  "Hack:size=10:antialias=true:autohint=true",
+                                  "JoyPixels:size=11:antialias=true:autohint=true"
 						     	};
 static const char col_1[]  = "#404040"; /* background color of bar */
 static const char col_2[]  = "#282c34"; /* border color unfocused windows */
