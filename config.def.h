@@ -2,7 +2,7 @@
 /* |  _ \_   _|  Derek Taylor (DistroTube) */
 /* | | | || |  	http://www.youtube.com/c/DistroTube */
 /* | |_| || |  	http://www.gitlab.com/dwt1/ */
-/* |____/ |_|  	*/ 
+/* |____/ |_|  	*/
 
 /* See LICENSE file for copyright and license details. */
 /* appearance */
@@ -26,12 +26,12 @@ static const char col_1[]  = "#404040"; /* background color of bar */
 static const char col_2[]  = "#282c34"; /* border color unfocused windows */
 static const char col_3[]  = "#d7d7d7";
 static const char col_4[]  = "#CC5500"; /* border color focused windows and tags */
-/* bar opacity 
+/* bar opacity
  * 0xff is no transparency.
  * 0xee adds wee bit of transparency.
  * Play with the value to get desired transparency.
  */
-static const unsigned int baralpha    = 0xee; 
+static const unsigned int baralpha    = 0xee;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]        = {
 	/*               fg         bg         border   */
@@ -72,7 +72,9 @@ static const Layout layouts[] = {
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "HHH",      grid },
-	{ NULL,       NULL },
+	{ "|M|",      centeredmaster },
+	{ ">M>",      centeredfloatingmaster },
+	{ NULL,       NULL},
 };
 
 /* key definitions */
@@ -118,7 +120,7 @@ static Key keys[] = {
 	{ MODKEY,               XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ControlMask,   XK_Return, zoom,           {0} },
 	{ MODKEY,               XK_Tab,    view,           {0} },
-	{ MODKEY, 		XK_q,      killclient,     {0} },
+	{ MODKEY,				XK_q,      killclient,     {0} },
 
     /* Layout manipulation */
 	{ MODKEY,               XK_Tab,    cyclelayout,    {.i = -1 } },
@@ -131,6 +133,8 @@ static Key keys[] = {
 	{ MODKEY,               XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,               XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,               XK_g,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,               XK_u,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,               XK_o,      setlayout,      {.v = &layouts[5]} },
 
 	{ MODKEY,               XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,     XK_0,      tag,            {.ui = ~0 } },
@@ -140,7 +144,7 @@ static Key keys[] = {
 	{ MODKEY,               XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,     XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,     XK_period, tagmon,         {.i = +1 } },
-	
+
     /* Apps Launched with SUPER + ALT + KEY */
 	{ MODKEY|Mod1Mask,        XK_b,    spawn,          CMD("tabbed -r 2 surf -pe x '.surf/html/homepage.html'") },
 	{ MODKEY|Mod1Mask,        XK_c,    spawn,          CMD("google-chrome-stable") },
@@ -151,7 +155,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,        XK_l,    spawn,          CMD("st -e lynx gopher://distro.tube") },
 	{ MODKEY|Mod1Mask,        XK_n,    spawn,          CMD("st -e newsboat") },
 	{ MODKEY|Mod1Mask,        XK_r,    spawn,          CMD("st -e rtv") },
-	
+
     /* Dmenu scripts launched with ALT + CTRL + KEY */
 	{ Mod1Mask|ControlMask, XK_e,      spawn,          CMD("./.dmenu/dmenu-edit-configs.sh") },
 	{ Mod1Mask|ControlMask, XK_m,      spawn,          CMD("./.dmenu/dmenu-sysmon.sh") },
@@ -159,7 +163,7 @@ static Key keys[] = {
 	{ Mod1Mask|ControlMask, XK_r,      spawn,          CMD("./.dmenu/dmenu-reddio.sh") },
 	{ Mod1Mask|ControlMask, XK_s,      spawn,          CMD("./.dmenu/dmenu-surfraw.sh") },
 	{ Mod1Mask|ControlMask, XK_i,      spawn,          CMD("./.dmenu/dmenu-scrot.sh") },
-    
+
 	TAGKEYS(                  XK_1,          0)
 	TAGKEYS(                  XK_2,          1)
 	TAGKEYS(                  XK_3,          2)
@@ -170,7 +174,7 @@ static Key keys[] = {
 	TAGKEYS(                  XK_8,          7)
 	TAGKEYS(                  XK_9,          8)
 	{ MODKEY|ShiftMask,       XK_q,	   quit,		   {0} },
-    { MODKEY|ShiftMask,       XK_r,    quit,           {1} }, 
+    { MODKEY|ShiftMask,       XK_r,    quit,           {1} },
 };
 
 /* button definitions */
