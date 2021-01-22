@@ -6,7 +6,7 @@
 
 /* See LICENSE file for copyright and license details. */
 /* appearance */
-static const unsigned int borderpx = 4;   /* border pixel of windows */
+static const unsigned int borderpx = 6;   /* border pixel of windows */
 static const unsigned int snap     = 32;  /* snap pixel */
 static const unsigned int gappx    = 10;   /* pixel gap between clients */
 static const int showbar           = 1;   /* 0 means no bar */
@@ -143,10 +143,10 @@ static Key keys[] = {
 	
     /* Apps Launched with SUPER + ALT + KEY */
 	{ MODKEY|Mod1Mask,        XK_b,    spawn,          CMD("tabbed -r 2 surf -pe x '.surf/html/homepage.html'") },
-	{ MODKEY|Mod1Mask,        XK_c,    spawn,          CMD("st -e cmus") },
+	{ MODKEY|Mod1Mask,        XK_c,    spawn,          CMD("google-chrome-stable") },
 	{ MODKEY|Mod1Mask,        XK_e,    spawn,          CMD("st -e emacsclient -c -a emacs") },
-	{ MODKEY|Mod1Mask,        XK_f,    spawn,          CMD("st -e vifm") },
-	{ MODKEY|Mod1Mask,        XK_h,    spawn,          CMD("st -e htop") },
+	{ MODKEY|Mod1Mask,        XK_f,    spawn,          CMD("alacritty -e vifm") },
+	{ MODKEY|Mod1Mask,        XK_h,    spawn,          CMD("alacritty -e htop") },
 	{ MODKEY|Mod1Mask,        XK_i,    spawn,          CMD("st -e irssi") },
 	{ MODKEY|Mod1Mask,        XK_l,    spawn,          CMD("st -e lynx gopher://distro.tube") },
 	{ MODKEY|Mod1Mask,        XK_n,    spawn,          CMD("st -e newsboat") },
