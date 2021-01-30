@@ -56,7 +56,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Google-chrome",  NULL,    NULL,    1 << 1,            0,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -106,7 +106,8 @@ static const char *tabtermcmd[]  = { "tabbed", "-r", "2", "st", "-w", "''", NULL
 static Key keys[] = {
 	/* modifier             key        function        argument */
 	{ MODKEY|ShiftMask,     XK_Return, spawn,          {.v = dmenucmd } },
-	{ MODKEY,		XK_space, spawn,           {.v = dmenucmd } },
+    { Mod1Mask|ControlMask, XK_l,      spawn,          SHCMD("blurlock") },
+	{ MODKEY,		        XK_p,      spawn,           {.v = dmenucmd } },
 	{ MODKEY,               XK_Return, spawn,          {.v = termcmd } },
 	{ Mod1Mask,             XK_Return, spawn,          {.v = tabtermcmd } },
 	{ MODKEY,               XK_b,      togglebar,      {0} },
@@ -125,7 +126,7 @@ static Key keys[] = {
     /* Layout manipulation */
 	{ MODKEY,               XK_Tab,    cyclelayout,    {.i = -1 } },
 	{ MODKEY|ShiftMask,     XK_Tab,    cyclelayout,    {.i = +1 } },
-/*	{ MODKEY,               XK_space,  setlayout,      {0} },*/
+	{ MODKEY,               XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,     XK_space,  togglefloating, {0} },
 
     /* Switch to specific layouts */
