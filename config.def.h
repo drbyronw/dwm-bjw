@@ -98,7 +98,7 @@ static const char *dmenucmd[]    = { "dmenu_run", "-p", "Run: ", NULL };
 
 /* the st terminal with tabbed */
 /* static const char *termcmd[]     = { "st", NULL }; */
-static const char *termcmd[]     = { "alacritty", NULL };
+static const char *termcmd[]     = { "xfce4-terminal", NULL };
 /* An alternative way to launch st along with the fish shell */
 /* static const char *termcmd[]     = { "st", "-e fish", NULL }; */
 static const char *tabtermcmd[]  = { "tabbed", "-r", "2", "st", "-w", "''", NULL };
@@ -110,7 +110,7 @@ static Key keys[] = {
 	{ MODKEY,		        XK_p,      spawn,           {.v = dmenucmd } },
 	{ MODKEY,               XK_Return, spawn,          {.v = termcmd } },
 	{ Mod1Mask,             XK_Return, spawn,          {.v = tabtermcmd } },
-	{ MODKEY,               XK_b,      togglebar,      {0} },
+	/* { MODKEY,               XK_b,      togglebar,      {0} }, */
 	{ MODKEY|ShiftMask,     XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,     XK_k,      rotatestack,    {.i = -1 } },
 	{ MODKEY,               XK_j,      focusstack,     {.i = +1 } },
@@ -148,7 +148,7 @@ static Key keys[] = {
 
     /* Apps Launched with SUPER + ALT + KEY */
 	{ MODKEY|Mod1Mask,        XK_b,    spawn,          CMD("tabbed -r 2 surf -pe x '.surf/html/homepage.html'") },
-	{ MODKEY|Mod1Mask,        XK_c,    spawn,          CMD("google-chrome-stable") },
+	{ MODKEY,			      XK_b,    spawn,          CMD("firefox") },
 	{ MODKEY|Mod1Mask,        XK_e,    spawn,          CMD("st -e emacsclient -c -a emacs") },
 	{ MODKEY|Mod1Mask,        XK_f,    spawn,          CMD("alacritty -e vifm") },
 	{ MODKEY|Mod1Mask,        XK_h,    spawn,          CMD("alacritty -e htop") },
