@@ -18,9 +18,9 @@ static const int vertpadbar        = 7;   /* vertical padding for statusbar */
  * Arch repos and is listed as a dependency for this build. JoyPixels is also
  * a hard dependency and makes colored fonts and emojis possible.
  */
-static const char *fonts[]     = {"Inconsolata Nerd Font:size=10:antialias=true:autohint=true",
-                                  "Hack:size=10:antialias=true:autohint=true",
-                                  "JoyPixels:size=11:antialias=true:autohint=true"
+static const char *fonts[]     = {"Inconsolata Nerd Font:size=13:antialias=true:autohint=true",
+                                  "Hack:size=13:antialias=true:autohint=true",
+                                  "JoyPixels:size=13:antialias=true:autohint=true"
 						     	};
 static const char col_1[]  = "#404040"; /* background color of bar */
 static const char col_2[]  = "#282c34"; /* border color unfocused windows */
@@ -47,8 +47,7 @@ static const unsigned int alphas[][3] = {
 /* tagging */
 /* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
 /* static const char *tags[] = { "", "", "", "", "", "", "", "", "" }; */
-static const char *tags[] = { "", "", "", "4", "5", "6", };
-
+static const char *tags[] = { "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -110,7 +109,7 @@ static Key keys[] = {
 	{ MODKEY,		        XK_p,      spawn,           {.v = dmenucmd } },
 	{ MODKEY,               XK_Return, spawn,          {.v = termcmd } },
 	{ Mod1Mask,             XK_Return, spawn,          {.v = tabtermcmd } },
-	/* { MODKEY,               XK_b,      togglebar,      {0} }, */
+	{ MODKEY|Mod1Mask,      XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,     XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,     XK_k,      rotatestack,    {.i = -1 } },
 	{ MODKEY,               XK_j,      focusstack,     {.i = +1 } },
