@@ -56,7 +56,8 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Google-chrome",  NULL,    NULL,    1 << 1,            0,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Firefox",  NULL,    NULL,    1 << 1,            0,           -1 },
+	/* { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 }, */
 };
 
 /* layout(s) */
@@ -91,7 +92,7 @@ static const Layout layouts[] = {
 /* dmenu */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 /* If you are using the standard dmenu program, use the following. */
-static const char *dmenucmd[]    = { "dmenu_run", "-p", "Run: ", NULL };
+static const char *dmenucmd[]    = { "dmenu_recency", "-p", "Run: ", NULL };
 /* If you are using the dmenu-distrotube-git program, use the following for a cooler dmenu! */
 /* static const char *dmenucmd[]    = { "dmenu_run", "-g", "10", "-l", "48", "-p", "Run: ", NULL }; */
 
